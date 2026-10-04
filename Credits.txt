@@ -1,0 +1,12 @@
+Toledo Pérez, Pavel José; Almaguer Zaldivar, Pavel Michel; Martínez Grave de Peralta, José Alejandro (2025), “Tensile test data for two specimens of AISI 1018 steel”, Mendeley Data, V1, doi: 10.17632/gm36r236sw.1
+
+
+Tensile test data for two specimens of AISI 1018 steel
+Published: 11 March 2025|Version 1|DOI:10.17632/gm36r236sw.1
+Contributors: Pavel José Toledo Pérez, Pavel Michel Almaguer Zaldivar, José Alejandro Martínez Grave de Peralta
+
+Description
+The tensile test allows to engineers and researchers to know the mechanical properties of the engineering materials. In this dataset is showed the results for the tensile test of the two dog bones specimens.  The specimen material is AISI 1015 steel. Tesnile test test was realized in the MTS-810 testing machine.  Some properties like yield limit, ultimate stress and hardening coefficient are obtained.
+
+Licence
+CC BY 4.0 licence

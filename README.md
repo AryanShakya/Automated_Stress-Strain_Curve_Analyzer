@@ -14,12 +14,12 @@ Manual calculation of tensile properties from raw machine output can be prone to
 
 ## Features
 
-- **Data Transformation**: Converts raw load ($\text{kN}$) and extension ($\text{mm}$) into engineering stress ($\text{GPa}$) and strain ($\text{mm/mm}$)[cite: 9].
-- **Elastic Region Slicing**: Filters stress values between 10% and 30% of UTS to isolate the linear elastic range, eliminating machine slack and onset yielding from regression calculations[cite: 9].
-- **Linear Fit Regression**: Fits a first-degree polynomial (`numpy.polyfit`) to extract slope (Young's Modulus, $E$) and y-intercept ($c$)[cite: 9].
-- **0.2% Offset Yield Identification**: Constructs the offset line equation and determines the zero-crossing point where physical curve data intersects the offset line[cite: 9].
-- **Critical Point Extraction**: Identifies UTS (peak stress) and Fracture Point (final dataset coordinate)[cite: 9].
-- **Graphical Visualization**: Uses Matplotlib to plot the full stress-strain curve alongside marked landmarks and arrow annotations[cite: 9].
+- **Data Transformation**: Converts raw load ($\text{kN}$) and extension ($\text{mm}$) into engineering stress ($\text{GPa}$) and strain ($\text{mm/mm}$).
+- **Elastic Region Slicing**: Filters stress values between 10% and 30% of UTS to isolate the linear elastic range, eliminating machine slack and onset yielding from regression calculations.
+- **Linear Fit Regression**: Fits a first-degree polynomial (`numpy.polyfit`) to extract slope (Young's Modulus, $E$) and y-intercept ($c$).
+- **0.2% Offset Yield Identification**: Constructs the offset line equation and determines the zero-crossing point where physical curve data intersects the offset line.
+- **Critical Point Extraction**: Identifies UTS (peak stress) and Fracture Point (final dataset coordinate).
+- **Graphical Visualization**: Uses Matplotlib to plot the full stress-strain curve alongside marked landmarks and arrow annotations.
 
 ## Mathematical Method
 
@@ -29,14 +29,14 @@ $$\text{Stress } (\sigma) = \frac{\text{Load } (F)}{\text{Cross-Sectional Area }
 $$\text{Strain } (\epsilon) = \frac{\text{Extension } (\Delta L)}{\text{Original Gauge Length } (L_0)}$$
 
 ### 2. Young's Modulus ($E$)
-Determined via OLS linear regression across the filtered elastic subset ($0.10 \cdot \sigma_{\text{UTS}} \le \sigma \le 0.30 \cdot \sigma_{\text{UTS}}$)[cite: 9]:
+Determined via OLS linear regression across the filtered elastic subset ($0.10 \cdot \sigma_{\text{UTS}} \le \sigma \le 0.30 \cdot \sigma_{\text{UTS}}$):
 $$\sigma = E \cdot \epsilon + c$$
 
 ### 3. Yield Strength ($0.2\%$ Offset)
-Calculated by shifting the linear elastic fit right by $0.002$ strain[cite: 9]:
+Calculated by shifting the linear elastic fit right by $0.002$ strain:
 $$\sigma_{\text{offset}} = E \cdot (\epsilon - 0.002) + c$$
 
-Yield strength corresponds to the first data index where physical stress drops below theoretical offset stress[cite: 9]:
+Yield strength corresponds to the first data index where physical stress drops below theoretical offset stress:
 $$\sigma_{\text{physical}} - \sigma_{\text{offset}} < 0$$
 
 ## Repository Structure
